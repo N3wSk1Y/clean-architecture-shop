@@ -1,0 +1,17 @@
+{
+  "name": "clean-architecture-shop",
+  "version": "1.0.0",
+  "description": "A book shop application, designed according to the clean architecture principles.",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc",
+    "start:prod": "npm run build && node dist/main.js"
+  },
+  "keywords": [
+    "clean-architecture",
+    "shop",
+    "nodejs"
+  ],
+  "author": "Dmitriy Fedenko (N3wSk1Y)",
+  "license": "MIT"
+}
