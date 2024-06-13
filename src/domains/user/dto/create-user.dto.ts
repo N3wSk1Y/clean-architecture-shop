@@ -1,4 +1,3 @@
-export type CreateUserDto = {
-    id: number
-    name: string
-}
+export type CreateUserDto = Required<{
+    name: string;
+}>;
