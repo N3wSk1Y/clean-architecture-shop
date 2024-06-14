@@ -1,9 +1,9 @@
 import { UserError } from "./user.error";
 
-export class UsingTakenNameError extends UserError {
+export class UndefinedUserIdError extends UserError {
     constructor(message: string, cause?: Error) {
         super(message, cause);
-        this.name = "UsingTakenNameError";
+        this.name = "UndefinedUserIdError";
         this.domain = "User";
     }
 }
