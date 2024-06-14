@@ -1,4 +1,4 @@
-import { DomainError } from "../../errors/domain-error";
+import { DomainError } from "../../../errors/domain-error";
 
 export abstract class UserError extends DomainError {
     protected constructor(message: string, cause?: Error) {
