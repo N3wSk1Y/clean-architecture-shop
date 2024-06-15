@@ -6,9 +6,9 @@ import { PublicUserModel } from "./models/public-user.model";
 export interface UserRepository {
     getAll(): Promise<UserModel[]>;
     getAllPublic(): Promise<PublicUserModel[]>;
-    getById(id: number): Promise<UserModel>;
+    getById(userId: number): Promise<UserModel>;
     create(userData: CreateUserDto): Promise<UserModel>;
     update(userData: UpdateUserDto): Promise<UserModel>;
-    delete(id: number): Promise<UserModel>;
+    delete(userId: number): Promise<UserModel>;
     existsByName(name: string): Promise<boolean>;
 }
