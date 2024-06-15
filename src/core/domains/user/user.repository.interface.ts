@@ -8,7 +8,7 @@ export interface UserRepository {
     getAllPublic(): Promise<PublicUserModel[]>;
     getById(userId: number): Promise<UserModel>;
     create(userData: CreateUserDto): Promise<UserModel>;
-    update(userData: UpdateUserDto): Promise<UserModel>;
+    update(authorId: number, userData: UpdateUserDto): Promise<UserModel>;
     delete(userId: number): Promise<UserModel>;
     existsByName(name: string): Promise<boolean>;
 }
