@@ -16,16 +16,19 @@ export class UserService {
         return await this.userRepository.getAllPublic();
     }
 
-    public async getById(id: number): Promise<PublicUserModel> {
-        try {
-            const user = await this.userRepository.getById(id);
-            return {
-                id: user.id,
-                name: user.name
-            };
-        } catch (e) {
-            throw new UndefinedUserIdError(`Пользователя с ID ${id} не существует.`, e);
-        }
+    public async getPublicById(userId: number): Promise<PublicUserModel> {
+        const user = await this.getById(userId);
+        return {
+            id: user.id,
+            name: user.name
+        };
+    }
+
+    private async getById(userId: number): Promise<UserModel> {
+        const user = await this.userRepository.getById(userId);
+        if (!user) throw new UndefinedUserIdError(`Пользователя с ID ${userId} не существует.`);
+
+        return user;
     }
 
     public async register(userData: CreateUserDto): Promise<PublicUserModel> {
