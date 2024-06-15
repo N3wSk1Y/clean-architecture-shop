@@ -1,4 +1,4 @@
-import { IUserRepository } from "./user.repository.interface";
+import { UserRepository } from "./user.repository.interface";
 import { CreateUserDto } from "./dto/create-user.dto";
 import { UserModel } from "./models/user.model";
 import { UsingTakenNameError } from "./errors/using-taken-name.error";
@@ -6,9 +6,9 @@ import { PublicUserModel } from "./models/public-user.model";
 import { UndefinedUserIdError } from "./errors/undefined-user-id.error";
 
 export class UserService {
-    private userRepository: IUserRepository;
+    private userRepository: UserRepository;
 
-    constructor(userRepository: IUserRepository) {
+    constructor(userRepository: UserRepository) {
         this.userRepository = userRepository;
     }
 

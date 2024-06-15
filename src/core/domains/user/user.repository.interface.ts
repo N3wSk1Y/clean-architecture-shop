@@ -3,7 +3,7 @@ import { CreateUserDto } from "./dto/create-user.dto";
 import { UpdateUserDto } from "./dto/update-user.dto";
 import { PublicUserModel } from "./models/public-user.model";
 
-export interface IUserRepository {
+export interface UserRepository {
     getAll(): Promise<UserModel[]>;
     getAllPublic(): Promise<PublicUserModel[]>;
     getById(id: number): Promise<UserModel>;
