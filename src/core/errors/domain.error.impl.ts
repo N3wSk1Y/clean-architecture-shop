@@ -1,6 +1,7 @@
 import { DomainErrorModel } from "./domain.error.model";
+import { DomainError } from "./domain.error";
 
-export abstract class DomainError extends Error {
+export abstract class DomainErrorImpl extends Error implements DomainError {
     public readonly caughtErrors: Error[] = [];
 
     public domain: string = "";
@@ -10,7 +11,7 @@ export abstract class DomainError extends Error {
         if (cause) {
             this.caughtErrors.push(cause);
         }
-        if (cause instanceof DomainError) {
+        if (cause instanceof DomainErrorImpl) {
             this.caughtErrors = this.caughtErrors.concat(cause.caughtErrors);
         }
     }
