@@ -29,4 +29,10 @@ export class AuthorService {
     public async update(authorId: number, authorData: UpdateAuthorDto): Promise<AuthorModel> {
         return await this.authorRepository.update(authorId, authorData);
     }
+
+    public async existsById(authorId: number): Promise<boolean> {
+        const author = await this.authorRepository.getById(authorId);
+
+        return !!author;
+    }
 }
