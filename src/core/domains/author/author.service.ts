@@ -3,6 +3,7 @@ import { AuthorModel } from "./models/author.model";
 import { CreateAuthorDto } from "./dto/create-author.dto";
 import { UsingTakenAuthorNameError } from "./errors/using-taken-author-name.error";
 import { UpdateAuthorDto } from "./dto/update-author.dto";
+import { UndefinedAuthorIdError } from "./errors/undefined-author-id.error";
 
 export class AuthorService {
     private authorRepository: AuthorRepository;
@@ -16,7 +17,10 @@ export class AuthorService {
     }
 
     public async getById(authorId: number): Promise<AuthorModel> {
-        return await this.authorRepository.getById(authorId);
+        const author = await this.authorRepository.getById(authorId);
+        if (!author) throw new UndefinedAuthorIdError(`Автора с ID ${authorId} не существует.`);
+
+        return author;
     }
 
     public async create(authorData: CreateAuthorDto): Promise<AuthorModel> {
