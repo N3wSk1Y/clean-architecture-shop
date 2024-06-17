@@ -1,7 +1,7 @@
 import { RepositoryErrorModel } from "./repository.error.model";
 
 export interface RepositoryError {
-    model: string;
+    ModelName: string;
     caughtErrors: Error[];
     getInfo(): RepositoryErrorModel;
 }

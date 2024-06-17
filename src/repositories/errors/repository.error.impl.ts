@@ -3,11 +3,15 @@ import { RepositoryErrorModel } from "./repository.error.model";
 
 export abstract class RepositoryErrorImpl extends Error implements RepositoryError {
     public readonly caughtErrors: Error[] = [];
+    private readonly model: string = "";
 
-    public model: string = "";
+    public get ModelName(): string {
+        return this.model;
+    }
 
-    protected constructor(message: string, cause?: Error) {
+    protected constructor(message: string, model: string, cause?: Error) {
         super(message);
+        this.model = model;
         if (cause) {
             this.caughtErrors.push(cause);
         }
